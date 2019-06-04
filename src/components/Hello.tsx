@@ -1,9 +1,15 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 export interface HelloProps {
   name: string;
 }
 
-export const Hello: SFC<HelloProps> = ({ name }) => (
-  <h1>{ name }</h1>
+// eslint-disable-next-line react/prop-types
+export const Hello: FC<HelloProps> = ({ name }) => (
+  <div>
+    <h1>{ name }</h1>
+    <h2>jakis name</h2>
+  </div>
 );
+
+      
