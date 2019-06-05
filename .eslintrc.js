@@ -28,7 +28,9 @@ module.exports = {
     "object-curly-spacing": ["warn", "always"],
     "ignoreParameters": true,
     "no-console": process.env.NODE_ENV === 'production' ? 2 : 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": 0
   },
   settings: {
     react: {

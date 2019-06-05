@@ -27,42 +27,44 @@ module.exports = (env) => {
     prev[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
     return prev;
   }, {});
-  return{
+  return {
     entry: ['@babel/polyfill', APP_PATH],
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'dist'),
+    },
 
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json']
-  },
-  
-  module: {
-    rules: [
-      {
-        enforce: "pre",
-        test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          emitError: true
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.json']
+    },
+
+    module: {
+      rules: [
+        {
+          enforce: "pre",
+          test: /\.(ts|js)x?$/,
+          exclude: /node_modules/,
+          loader: 'eslint-loader',
+          options: {
+            emitError: true,
+            emitWarning: false
+          }
+        },
+        {
+          test: /\.(ts|js)x?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
         }
-      },
-      { 
-        test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      }
-    ],
-  },
+      ],
+    },
 
-  plugins: [
-    new HtmlWebpackPlugin({ inject: true, template: path.join(APP_PATH, 'index.html') }),
-    new ForkTsCheckerWebpackPlugin({
-      tsconfig: path.resolve(__dirname, './tsconfig.json')
-    }),
-    new webpack.DefinePlugin(envKeys),
-    new CopyWebpackPlugin([{ from: 'src/static' }]),
-  ]
-}};
+    plugins: [
+      new HtmlWebpackPlugin({ inject: true, template: path.join(APP_PATH, 'index.html') }),
+      new ForkTsCheckerWebpackPlugin({
+        tsconfig: path.resolve(__dirname, './tsconfig.json')
+      }),
+      new webpack.DefinePlugin(envKeys),
+      new CopyWebpackPlugin([{ from: 'src/static' }]),
+    ]
+  }
+};

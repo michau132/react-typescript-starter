@@ -14,16 +14,16 @@ module.exports = (env) => {
       maxAssetSize: 512000
     },
     optimization: {
-      runtimeChunk: 'single',
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all'
-          }
-        }
-      },
+      // runtimeChunk: 'single',
+      // splitChunks: {
+      //   cacheGroups: {
+      //     vendor: {
+      //       test: /[\\/]node_modules[\\/]/,
+      //       name: 'vendors',
+      //       chunks: 'all'
+      //     }
+      //   }
+      // },
       minimizer: [new UglifyJsPlugin()],
     },
     plugins: [

@@ -9,6 +9,7 @@
     "@babel/proposal-class-properties",
     "@babel/proposal-object-rest-spread",
     "@babel/plugin-proposal-export-namespace-from",
-    "@babel/plugin-proposal-throw-expressions"
+    "@babel/plugin-proposal-throw-expressions",
+    "react-hot-loader/babel"
   ]
 }

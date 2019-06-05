@@ -4,8 +4,6 @@ const common = require('./webpack.common');
 
 
 module.exports = (env) =>  {
-  console.log(env)
-  // console.log(envKeys)
   return merge(common(env), {
     mode: 'development',
     devtool: 'inline-source-map',
@@ -14,11 +12,13 @@ module.exports = (env) =>  {
       contentBase: './dist',
       port: 3000,
       hot: true,
+      clientLogLevel: "warning"
     },
-    plugins: [
-     
-      new webpack.HotModuleReplacementPlugin(),
-    ],
+    resolve: {
+      alias: {
+        'react-dom': '@hot-loader/react-dom'
+      }
+    }
   });
 }
 
