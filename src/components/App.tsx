@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Counter } from './Counter';
-import { Hello } from './Hello';
+const Hello = lazy(() => import('./Hello'));
 
-export const App: React.FC = () => (
-  <>
-    <Hello name="react-webpack-typescript-babel" />
-    <Counter />
-  </>
-);
+
+export const App: React.FC = () => {
+  
+  return (
+    <>
+      <Suspense fallback={<div>loading</div>}>
+        <Hello name="react-webpack-typescript-babel" />
+
+      </Suspense>
+      <Counter />
+    </>
+  );
+};
 

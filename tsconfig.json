@@ -9,7 +9,7 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "target": "es2018",
-    "module": "es2015",
+    "module": "esNext",
     "strict": true,
     "jsx": "react"
   },
