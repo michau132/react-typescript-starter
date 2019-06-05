@@ -1,4 +1,4 @@
-# React-Starter
+# react-typescript-starter
 
 > This is sample repository to quick jump to start coding in React.
 
