@@ -37,6 +37,17 @@ And to run in --watch mode:
 npm run type-check:watch
 ```
 
+## Linting files at src folder
+
+```shell
+npm run lint
+```
+
+And to run in --fix mode:
+
+```shell
+npm run lint:fix
+```
 
 ## License
 
