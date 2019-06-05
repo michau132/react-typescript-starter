@@ -8,5 +8,4 @@ export const App: React.FC = () => (
     <Counter />
   </>
 );
-console.log(process.env.NODE_ENV);
-console.log(process);
+

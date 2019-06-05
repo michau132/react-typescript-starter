@@ -2,9 +2,11 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 
-module.exports = env =>  {
-  console.log(env.NODE_ENV)
-  return merge(common, {
+
+module.exports = (env) =>  {
+  console.log(env)
+  // console.log(envKeys)
+  return merge(common(env), {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
@@ -14,9 +16,7 @@ module.exports = env =>  {
       hot: true,
     },
     plugins: [
-      new webpack.DefinePlugin({
-        'proccess.NODE_ENV': JSON.stringify(env.NODE_ENV)
-      }),
+     
       new webpack.HotModuleReplacementPlugin(),
     ],
   });

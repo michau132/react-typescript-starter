@@ -1,3 +1,5 @@
+//const isProduction = process.env.NODE_ENV.replace(/\s/g, "") === 'production';
+
 module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
@@ -17,7 +19,7 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
-    "@typescript-eslint/explicit-function-return-type": process.env.NODE_ENV === 'production' ? 2 : 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-member-accessibility": 0,
     "indent": "off",
     "@typescript-eslint/indent": ["warn", 2],
@@ -29,7 +31,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: 'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
+      version: 'detect',
     },
   },
   env: {
@@ -37,5 +39,4 @@ module.exports = {
     es6: true,
     node: true
   }
-}
-console.log(process.env.NODE_ENV)
+};
