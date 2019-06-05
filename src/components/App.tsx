@@ -1,11 +1,15 @@
 import { hot } from 'react-hot-loader/root';
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { Counter } from './Counter';
 const Hello = lazy(() => import('./Hello'));
 
 const App: React.FC = () => {
   const [poka, setPoka] = useState(false);
-
+  useEffect(() => {
+    fetch('https://api.chucknorris.io/jokes/random')
+      .then(res=> res.json())
+      .then(res=> console.log(res));
+  }, []);
   const onClick = () => {
     setPoka(!poka);
   };

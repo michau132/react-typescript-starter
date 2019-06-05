@@ -12,7 +12,14 @@ module.exports = (env) =>  {
       contentBase: './dist',
       port: 3000,
       hot: true,
-      clientLogLevel: "warning"
+      clientLogLevel: "warning",
+      proxy: {
+        '/api': {
+          target: 'https://other-server.example.com',
+          secure: false,
+          pathRewrite: { '^/api': '' },
+        }
+      }
     },
     resolve: {
       alias: {

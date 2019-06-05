@@ -6,7 +6,7 @@ export interface CounterState {
 
 export class Counter extends Component<{}, {}> {
   state: CounterState = { value: 0 };
-
+  
   public render() {
     return (
       <>
