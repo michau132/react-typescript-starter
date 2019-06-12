@@ -14,17 +14,20 @@ module.exports = (env) =>  {
       hot: true,
       clientLogLevel: "warning",
       proxy: {
-        '/api': {
-          target: 'https://other-server.example.com',
+        '/api/*': {
+          target: 'https://api.github.com/',
           secure: false,
-          pathRewrite: { '^/api': '' },
+          changeOrigin: true,
+          logLevel: 'debug',
+          pathRewrite: {'^/api': ''}
         }
       }
     },
     resolve: {
       alias: {
-        'react-dom': '@hot-loader/react-dom'
-      }
+        'react-dom': '@hot-loader/react-dom',
+        
+      },
     }
   });
 }

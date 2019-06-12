@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
-export interface HelloProps {
+interface HelloProps {
   name: string;
 }
 
@@ -9,6 +9,14 @@ const Hello: FC<HelloProps> = ({ name }) => {
   const click = () => {
     updateTime('another time');
   };
+  useEffect(() => {
+    fetch('https://api.chucknorris.io/jokes/random')
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        console.log('biore');
+      });
+  }, []);
   return(
     <div>
       <h1>{ name }</h1>

@@ -7,7 +7,8 @@ module.exports = {
   ],
   plugins: [
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "react-hooks"
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -30,7 +31,9 @@ module.exports = {
     "no-console": process.env.NODE_ENV === 'production' ? 2 : 0,
     "react/prop-types": 0,
     "no-unused-vars": 0,
-    "@typescript-eslint/no-unused-vars": 0
+    "@typescript-eslint/no-unused-vars": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   settings: {
     react: {

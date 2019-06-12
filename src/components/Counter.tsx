@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 
-export interface CounterState {
+interface CounterState {
   value: number;
 }
 
-export class Counter extends Component<{}, {}> {
+interface Propsy {
+  info: {
+    name: string;
+    surname: string;
+  };
+}
+
+export class Counter extends Component<Propsy, CounterState> {
   state: CounterState = { value: 0 };
-  
-  public render() {
+
+  render() {
+    const { name, surname } = this.props.info;
     return (
       <>
+        <h1>{name}</h1>
+        <h1>{surname}</h1>
         <div>{ this.state.value }</div>
         <button onClick={this.handleIncrement}>+</button>
         <button onClick={this.handleDecrement}>-</button>
@@ -18,8 +28,8 @@ export class Counter extends Component<{}, {}> {
     );
   }
 
-  private handleIncrement = () => this.setState({ value: this.state.value + 1 });
+  handleIncrement = () => this.setState({ value: this.state.value + 1 });
 
-  private handleDecrement = () => this.setState({ value: this.state.value - 1 });
+  handleDecrement = () => this.setState({ value: this.state.value - 1 });
  
 }
